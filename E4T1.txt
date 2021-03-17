@@ -1,0 +1,21 @@
+1. Identify 2-3 changes that can be made to our environment to prevent an SSH brute force attack from the internet.
+- Using the security groups inbound rules, allow SSH connections only from specific IP ranges
+- Disable SSH password login on the web server instance
+- Disable SSH logins for root user on the web server instance (a newly created user can be used instead)
+
+2. Neither instance should have had access to the secret recipes bucket; even in the instance that API credentials were compromised how could we have prevented access to sensitive data?
+By using a restrictive IAM policy that would only allow access to the free receipes bucket.
+For example the Instance Role policy could be in a form similar to:
+{
+    "Effect": "Allow",
+    "Action": "s3:*",
+    "Resource": "arn:aws:s3:::cand-c3-free-recipes-523425384697"
+}
+
+instead of
+
+{
+    "Effect": "Allow",
+    "Action": "s3:*",
+    "Resource": "*"
+}

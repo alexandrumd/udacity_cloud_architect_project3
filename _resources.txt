@@ -1,0 +1,12 @@
+# s3 buckets name
+cand-c3-free-recipes-523425384697
+cand-c3-secret-recipes-523425384697
+
+# App URL
+c1-web-service-alb-2070028592.us-east-1.elb.amazonaws.com
+
+# App Instance IP
+ec2-52-23-21-243.compute-1.amazonaws.com
+
+# Attack Instance IP
+ec2-3-238-141-35.compute-1.amazonaws.com

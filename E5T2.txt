@@ -1,0 +1,20 @@
+1. Identify tools that will allow you to do the following: 
+a. Scan infrastructure as code templates. 
+- Checkov, TFlint, CloudSploit.
+b. Scan AMI’s or containers for OS vulnerabilities.
+- AquaSec Trivy, Clair, Anchore.
+c. Scan an AWS environment for cloud configuration vulnerabilities.
+AWS Config, Prowler.
+
+2. For each tool - identify an example compliance violation or vulnerability which it might expose.
+Checkov - "Ensure all data stored in the S3 bucket have versioning enabled"
+TFlint - Disallow using invalid engine name for an RDS database, e.g. Warning: "mysql57" is invalid engine.
+CloudSploit - 'Ensure the default security groups block all traffic by default' (source: https://github.com/aquasecurity/cloudsploit/blob/2ab02ba4ffcac7ca8122f37d6b453a9679447a32/plugins/aws/ec2/defaultSecurityGroup.js)
+
+Trivy - CVE-2018-14618 - Critical - curl: NTLM password overflow (source: https://github.com/aquasecurity/trivy/blob/main/imgs/usage1.png)
+Clair - similar to Trivy it outputs findings based on the Common Vulnerabilities and Exposures database (CVE)
+Anchore - Notifies based on CVEs as well
+
+AWS Config - securityhub-alb-http-to-https-redirection-check-44b48164 Checks whether HTTP to HTTPS redirection is configured on all HTTP listeners of Application Load Balancers.
+Prowler - "Avoid the use of the root account" (source: https://cloud.githubusercontent.com/assets/3985464/18489640/50fe6824-79cc-11e6-8a9c-e788b88a8a6b.png)
+

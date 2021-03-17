@@ -1,0 +1,3 @@
+- Application Instance placed in Public Subnet, instead of being placed in a Private Subnet
+- Application Instance publicily available over internet, having a public IP address
+- No policy set to restrict access to the secret recipes S3 bucket

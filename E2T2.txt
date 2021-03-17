@@ -1,0 +1,8 @@
+ - VPC flow logging should be enabled in all VPCs
+ - S3 bucket used to store logs should not be publicly accessible. The "Block all public access" setting shoudl be enabled, and access granted only through specific policies.
+ - Security groups should not allow ingress from 0.0.0.0/0 to port 22 (as WebAppSG does). This should be restricted only to certain IP addresses.
+ - Security groups should not allow ingress from 0.0.0.0/0 to port 5000 (as WebAppSG does). This should be restricted only to certain IP addresses.
+ - Unused ports should be closed on the instance (e.g. port 23 or port 20).
+ - Web Service Instance should be placed in a private subnet, so that it's not reachable over internet. Only the load balancer should be used to reach the Web Service Instance for http access.
+ - Web service should be available only through encrypted http connection. The load balancer should use TLS to encrypt traffic to the web service.
+ 
